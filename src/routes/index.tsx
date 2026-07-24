@@ -1,10 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
-import logoAsset from "@/assets/logo.png.asset.json";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import bccKinAsset from "@/assets/bcc_kin_0.jpg.asset.json";
-import wamesoAsset from "@/assets/wameso.jpg.asset.json";
 import francAsset from "@/assets/montage_franc_congolais_calendrier_1.png.asset.json";
 import tarifsAsset from "@/assets/tarifsetcondition.png.asset.json";
-import { ArrowUpRight, ArrowDown, ArrowUp, Search, Menu, ChevronRight } from "lucide-react";
+import wamesoAsset from "@/assets/wameso.jpg.asset.json";
+import { ArrowUpRight, ArrowDown, ArrowUp, ChevronRight } from "lucide-react";
+import { SiteHeader, SiteFooter, TopBar } from "@/components/site/SiteChrome";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -19,15 +19,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
-
-const nav = [
-  { label: "La Banque", href: "#banque" },
-  { label: "Opérations & Marchés", href: "#operations" },
-  { label: "Hôtel des Monnaies", href: "#monnaies" },
-  { label: "Intermédiaires Financiers", href: "#intermediaires" },
-  { label: "Statistiques", href: "#stats" },
-  { label: "Publications", href: "#publications" },
-];
 
 const rates = [
   { code: "USD", name: "Dollar US", value: "2 253,8500", delta: -0.02 },
@@ -44,66 +35,15 @@ function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <TopBar />
-      <Header />
+      <SiteHeader />
       <Hero />
       <Ticker />
       <KeyIndicators />
       <Publications />
       <Governor />
       <Mission />
-      <Footer />
+      <SiteFooter />
     </div>
-  );
-}
-
-function TopBar() {
-  return (
-    <div className="hidden md:block border-b hairline bg-surface">
-      <div className="container-x flex h-9 items-center justify-between text-xs text-muted-foreground">
-        <div className="flex items-center gap-6">
-          <span>République Démocratique du Congo</span>
-          <span className="hairline border-l h-3" />
-          <span>Kinshasa · {new Date().toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}</span>
-        </div>
-        <div className="flex items-center gap-5">
-          <a href="#" className="hover:text-foreground transition-colors">FR</a>
-          <span className="opacity-40">EN</span>
-          <a href="#" className="hover:text-foreground transition-colors">Contact</a>
-          <a href="#" className="hover:text-foreground transition-colors">Carrières</a>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Header() {
-  return (
-    <header className="sticky top-0 z-40 bg-background/90 backdrop-blur-md border-b hairline">
-      <div className="container-x flex h-20 items-center justify-between gap-6">
-        <a href="/" className="flex items-center gap-3 shrink-0">
-          <img src={logoAsset.url} alt="Banque Centrale du Congo" className="h-11 w-auto" />
-          <div className="hidden sm:block leading-tight">
-            <div className="serif text-lg font-semibold text-ink">Banque Centrale du Congo</div>
-            <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Institution monétaire · RDC</div>
-          </div>
-        </a>
-        <nav className="hidden lg:flex items-center gap-7 text-[13px] font-medium text-ink-soft">
-          {nav.map((n) => (
-            <a key={n.label} href={n.href} className="relative py-1 hover:text-ink transition-colors after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-px after:bg-ink after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left">
-              {n.label}
-            </a>
-          ))}
-        </nav>
-        <div className="flex items-center gap-2">
-          <button aria-label="Recherche" className="grid place-items-center h-10 w-10 rounded-full hover:bg-muted transition-colors">
-            <Search className="h-4 w-4" />
-          </button>
-          <button aria-label="Menu" className="lg:hidden grid place-items-center h-10 w-10 rounded-full hover:bg-muted transition-colors">
-            <Menu className="h-4 w-4" />
-          </button>
-        </div>
-      </div>
-    </header>
   );
 }
 
@@ -124,13 +64,13 @@ function Hero() {
             monétaire au service de l'économie nationale.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <a href="#publications" className="group inline-flex items-center gap-2 h-12 px-6 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:bg-ink transition-colors">
+            <Link to="/$section" params={{ section: "publications" }} className="group inline-flex items-center gap-2 h-12 px-6 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:bg-ink transition-colors">
               Lire le rapport 2024
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-            <a href="#stats" className="inline-flex items-center gap-2 h-12 px-6 rounded-full border hairline text-sm font-medium text-ink hover:bg-muted transition-colors">
+            </Link>
+            <Link to="/$section" params={{ section: "statistiques" }} className="inline-flex items-center gap-2 h-12 px-6 rounded-full border hairline text-sm font-medium text-ink hover:bg-muted transition-colors">
               Consulter les statistiques
-            </a>
+            </Link>
           </div>
           <dl className="mt-14 grid grid-cols-3 gap-6 max-w-md">
             <Stat label="Taux directeur" value="13,50%" />
@@ -206,9 +146,9 @@ function KeyIndicators() {
               Une lecture claire de l'économie congolaise.
             </h2>
           </div>
-          <a href="#" className="hidden md:inline-flex items-center gap-1 text-sm text-ink hover:gap-2 transition-all">
+          <Link to="/$section" params={{ section: "statistiques" }} className="hidden md:inline-flex items-center gap-1 text-sm text-ink hover:gap-2 transition-all">
             Tous les indicateurs <ChevronRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-3 gap-px bg-hairline border hairline">
@@ -312,6 +252,7 @@ function Publications() {
       desc: "Analyse annuelle des conditions monétaires, budgétaires et financières de la RDC.",
       img: francAsset.url,
       date: "Publication officielle",
+      to: "publications",
     },
     {
       tag: "Réglementation",
@@ -319,6 +260,7 @@ function Publications() {
       desc: "Modification n°2 de la réglementation du change en République Démocratique du Congo.",
       img: bccKinAsset.url,
       date: "2025",
+      to: "operations-et-marches",
     },
     {
       tag: "Tarification",
@@ -326,8 +268,9 @@ function Publications() {
       desc: "Édition 2024 des tarifs applicables aux opérations bancaires et financières.",
       img: tarifsAsset.url,
       date: "Édition 2024",
+      to: "publications",
     },
-  ];
+  ] as const;
   return (
     <section id="publications" className="py-24 border-b hairline bg-surface">
       <div className="container-x">
@@ -338,13 +281,13 @@ function Publications() {
               Les décisions et rapports les plus récents.
             </h2>
           </div>
-          <a href="#" className="hidden md:inline-flex items-center gap-1 text-sm text-ink hover:gap-2 transition-all">
+          <Link to="/$section" params={{ section: "publications" }} className="hidden md:inline-flex items-center gap-1 text-sm text-ink hover:gap-2 transition-all">
             Toutes les publications <ChevronRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {items.map((it) => (
-            <article key={it.title} className="group cursor-pointer">
+            <Link key={it.title} to="/$section" params={{ section: it.to }} className="group cursor-pointer">
               <div className="aspect-[4/3] overflow-hidden bg-muted mb-5">
                 <img src={it.img} alt={it.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
               </div>
@@ -360,7 +303,7 @@ function Publications() {
               <div className="mt-4 inline-flex items-center gap-1 text-xs text-ink font-medium">
                 Lire <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
@@ -400,9 +343,9 @@ function Governor() {
               <div className="serif text-xl text-ink">Autorité monétaire</div>
             </div>
           </div>
-          <a href="#" className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-ink hover:gap-3 transition-all">
+          <Link to="/$section" params={{ section: "la-banque" }} className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-ink hover:gap-3 transition-all">
             Lire le profil complet <ArrowUpRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
@@ -436,56 +379,5 @@ function Mission() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  const cols = [
-    { title: "La Banque", links: ["Historique", "Gouvernance", "Le Gouverneur", "Organigramme", "Textes de base"] },
-    { title: "Opérations", links: ["Politique monétaire", "Marché des changes", "Réserves", "Réglementation", "Systèmes de paiement"] },
-    { title: "Publications", links: ["Rapports annuels", "Bulletins statistiques", "Notes de conjoncture", "Études & recherche", "Communiqués"] },
-    { title: "Ressources", links: ["Contact", "Carrières", "Marchés publics", "Presse", "Plan du site"] },
-  ];
-  return (
-    <footer className="bg-background border-t hairline pt-20 pb-10">
-      <div className="container-x">
-        <div className="grid lg:grid-cols-12 gap-10 pb-16 border-b hairline">
-          <div className="lg:col-span-4">
-            <div className="flex items-center gap-3">
-              <img src={logoAsset.url} alt="BCC" className="h-12 w-auto" />
-              <div>
-                <div className="serif text-lg text-ink">Banque Centrale du Congo</div>
-                <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Depuis 1964</div>
-              </div>
-            </div>
-            <p className="mt-6 text-sm text-ink-soft leading-relaxed max-w-sm">
-              Boulevard Colonel Tshatshi, Kinshasa – Gombe,
-              République Démocratique du Congo.
-            </p>
-            <p className="mt-3 text-sm text-ink-soft">+243 (0)81 000 00 00</p>
-          </div>
-          {cols.map((c) => (
-            <div key={c.title} className="lg:col-span-2">
-              <div className="eyebrow mb-5">{c.title}</div>
-              <ul className="space-y-3 text-sm">
-                {c.links.map((l) => (
-                  <li key={l}>
-                    <a href="#" className="text-ink-soft hover:text-ink transition-colors">{l}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <div>© {new Date().getFullYear()} Banque Centrale du Congo. Tous droits réservés.</div>
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-ink transition-colors">Mentions légales</a>
-            <a href="#" className="hover:text-ink transition-colors">Politique de confidentialité</a>
-            <a href="#" className="hover:text-ink transition-colors">Accessibilité</a>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }
