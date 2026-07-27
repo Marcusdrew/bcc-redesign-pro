@@ -31,6 +31,7 @@
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-gold: var(--gold);
+  --color-sky: var(--sky);
   --color-surface: var(--surface);
   --color-hairline: var(--hairline);
   --color-positive: var(--positive);
@@ -59,6 +60,7 @@
   --accent: oklch(0.96 0.005 260);
   --accent-foreground: oklch(0.2 0.03 260);
   --gold: oklch(0.72 0.12 78);
+  --sky: oklch(0.82 0.08 215);
   --destructive: oklch(0.55 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.92 0.005 260);

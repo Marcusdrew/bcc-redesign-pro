@@ -360,20 +360,20 @@ function Mission() {
     { n: "04", t: "Réserves de change", d: "Gérer les réserves officielles de change de la République." },
   ];
   return (
-    <section id="operations" className="py-24 bg-ink text-primary-foreground">
+    <section id="operations" className="py-24 bg-sky text-ink">
       <div className="container-x">
         <div className="max-w-3xl mb-16">
-          <div className="text-[10px] uppercase tracking-[0.2em] font-semibold opacity-60 mb-6">— Missions</div>
+          <div className="text-[10px] uppercase tracking-[0.2em] font-semibold text-ink-soft mb-6">— Missions</div>
           <h2 className="serif text-4xl md:text-5xl leading-[1.05]">
             Quatre missions au service de l'économie de la République Démocratique du Congo.
           </h2>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-ink/10 border border-ink/10">
           {items.map((m) => (
-            <div key={m.n} className="bg-ink p-8 min-h-[220px] flex flex-col">
-              <div className="serif text-3xl opacity-40 mb-6">{m.n}</div>
+            <div key={m.n} className="bg-sky p-8 min-h-[220px] flex flex-col">
+              <div className="serif text-3xl text-ink/40 mb-6">{m.n}</div>
               <h3 className="serif text-xl mb-3">{m.t}</h3>
-              <p className="text-sm text-white/60 leading-relaxed">{m.d}</p>
+              <p className="text-sm text-ink-soft leading-relaxed">{m.d}</p>
             </div>
           ))}
         </div>
