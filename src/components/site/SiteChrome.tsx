@@ -98,41 +98,41 @@ export function SiteFooter() {
     { title: "Ressources", slug: "media", links: ["Actualités", "Communiqués", "Annonces", "Carrières"] },
   ];
   return (
-    <footer className="bg-background border-t hairline pt-20 pb-10">
+    <footer className="bg-ink border-t border-white/10 pt-20 pb-10">
       <div className="container-x">
-        <div className="grid lg:grid-cols-12 gap-10 pb-16 border-b hairline">
+        <div className="grid lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3">
               <img src={logoAsset.url} alt="BCC" className="h-12 w-auto" />
               <div>
-                <div className="serif text-lg text-ink">Banque Centrale du Congo</div>
-                <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Depuis 1964</div>
+                <div className="serif text-lg text-white">Banque Centrale du Congo</div>
+                <div className="text-[10px] uppercase tracking-[0.18em] text-white/60">Depuis 1964</div>
               </div>
             </div>
-            <p className="mt-6 text-sm text-ink-soft leading-relaxed max-w-sm">
+            <p className="mt-6 text-sm text-white/70 leading-relaxed max-w-sm">
               Boulevard Colonel Tshatshi, Kinshasa – Gombe, République Démocratique du Congo.
             </p>
-            <p className="mt-3 text-sm text-ink-soft">+243 (0)81 000 00 00</p>
+            <p className="mt-3 text-sm text-white/70">+243 (0)81 000 00 00</p>
           </div>
           {cols.map((c) => (
             <div key={c.title} className="lg:col-span-2">
-              <Link to="/$section" params={{ section: c.slug }} className="eyebrow mb-5 block hover:text-ink transition-colors">{c.title}</Link>
+              <Link to="/$section" params={{ section: c.slug }} className="text-[0.7rem] tracking-[0.18em] uppercase font-semibold mb-5 block text-white/80 hover:text-white transition-colors">{c.title}</Link>
               <ul className="space-y-3 text-sm mt-5">
                 {c.links.map((l) => (
                   <li key={l}>
-                    <Link to="/$section" params={{ section: c.slug }} className="text-ink-soft hover:text-ink transition-colors">{l}</Link>
+                    <Link to="/$section" params={{ section: c.slug }} className="text-white/70 hover:text-white transition-colors">{l}</Link>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
           <div>© {new Date().getFullYear()} Banque Centrale du Congo. Tous droits réservés.</div>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-ink transition-colors">Mentions légales</a>
-            <a href="#" className="hover:text-ink transition-colors">Politique de confidentialité</a>
-            <a href="#" className="hover:text-ink transition-colors">Accessibilité</a>
+            <a href="#" className="text-white/70 hover:text-white transition-colors">Mentions légales</a>
+            <a href="#" className="text-white/70 hover:text-white transition-colors">Politique de confidentialité</a>
+            <a href="#" className="text-white/70 hover:text-white transition-colors">Accessibilité</a>
           </div>
         </div>
       </div>
