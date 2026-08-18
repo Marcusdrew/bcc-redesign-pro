@@ -11,8 +11,8 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Banque Centrale du Congo — Institution monétaire de la RDC" },
       { name: "description", content: "Cours de change, taux directeurs, politique monétaire et publications officielles de la Banque Centrale du Congo." },
-      { property: "og:title", content: "Banque Centrale du Congo" },
-      { property: "og:description", content: "Institution monétaire de la République Démocratique du Congo." },
+      { property: "og:title", content: "Banque Centrale du Congo — Institution monétaire de la RDC" },
+      { property: "og:description", content: "Cours de change, taux directeurs, politique monétaire et publications officielles de la Banque Centrale du Congo." },
       { property: "og:image", content: bccKinAsset.url },
       { name: "twitter:image", content: bccKinAsset.url },
     ],

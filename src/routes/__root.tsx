@@ -77,13 +77,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Banque Centrale du Congo — BCC" },
-      { name: "description", content: "Site officiel de la Banque Centrale du Congo : politique monétaire, cours de change, publications et réglementation." },
+      { title: "Banque Centrale du Congo — Institution monétaire de la RDC" },
+      { name: "description", content: "Cours de change, taux directeurs, politique monétaire et publications officielles de la Banque Centrale du Congo." },
       { name: "author", content: "Banque Centrale du Congo" },
-      { property: "og:title", content: "Banque Centrale du Congo" },
-      { property: "og:description", content: "Institution monétaire de la République Démocratique du Congo." },
+      { property: "og:title", content: "Banque Centrale du Congo — Institution monétaire de la RDC" },
+      { property: "og:description", content: "Cours de change, taux directeurs, politique monétaire et publications officielles de la Banque Centrale du Congo." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Banque Centrale du Congo — Institution monétaire de la RDC" },
+      { name: "twitter:description", content: "Cours de change, taux directeurs, politique monétaire et publications officielles de la Banque Centrale du Congo." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2f3c0b22-e224-4c90-a00c-9ef1a0d07cca" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/2f3c0b22-e224-4c90-a00c-9ef1a0d07cca" },
     ],
     links: [
       {
